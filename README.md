@@ -33,7 +33,7 @@ On decompile l'APK avec **jadx** (ou apktool) pour inspecter le code source Java
 
 L'application au lancement affiche un fond d'ecran avec le meme "Always has been" — indice que tout est deja en place, il faut juste le trouver.
 
-![Screenshot_2026-04-14_183445](Screenshot 2026-04-14 183445.png)
+![Screenshot_2026-04-14_183445](Screenshot_2026-04-14_183445.png)
 
 ### 1.2 Inspection du Manifest
 
