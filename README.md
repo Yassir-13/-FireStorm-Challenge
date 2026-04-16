@@ -41,16 +41,6 @@ Dans `AndroidManifest.xml`, on identifie l'activite principale :
 
 ![Screenshot_2026-04-15_143931](Screenshot_2026-04-15_143931.png)
 
-```xml
-<activity
-    android:name="com.pwnsec.firestorm.MainActivity"
-    android:exported="true">
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
-    </intent-filter>
-</activity>
-```
 
 **Point cle :** `android:exported="true"` — l'activite est accessible directement, ce qui facilite l'instrumentation Frida.
 
@@ -60,11 +50,6 @@ Dans les ressources decompilees, on trouve les identifiants Firebase directement
 
 ![Screenshot_2026-04-15_144425](Screenshot_2026-04-15_144425.png)
 
-```xml
-<string name="google_api_key">AIzaSyAXsK0qsx4RuLSA9C8IPSWd0eQ67HVHuJY</string>
-<string name="google_app_id">1:692664198166:android:505d0780d7d630846dc137</string>
-<string name="google_crash_reporting_api_key">AIzaSyAXsK0qsx4RuLSA9C8IPSWd0eQ67HVHuJY</string>
-```
 
 On releve egalement plusieurs strings nommees de maniere suggestive :
 
