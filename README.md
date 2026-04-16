@@ -1,4 +1,4 @@
-# Firestorm — CTF Write-up
+# Firestorm
 
 **Auteur :** Yassir Nacir 
 **Categorie :** Mobile / Android Reverse Engineering  
@@ -213,13 +213,6 @@ print(flag_data.val())
 ### 3.2 Execution et flag
 
 ![Screenshot_2026-04-15_144220](Screenshot_2026-04-15_144220.png)
-
-```
-python get_flag.py
-Connexion reussie. Token obtenu.
-FLAG recupere :
-PWNSEC{C0ngr4ts_Th4t_w45_4N_345y_P4$$w0rd_t0_G3t!!!_0R_!5_!t???}
-```
 
 ---
 
