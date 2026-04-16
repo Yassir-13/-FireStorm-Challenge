@@ -68,28 +68,6 @@ Dans `MainActivity`, on trouve la methode suivante :
 
 ![Screenshot_2026-04-15_143940](Screenshot_2026-04-15_143940.png)
 
-```java
-public String Password() {
-    StringBuilder sb = new StringBuilder();
-    String string  = getString(R.string.Friday_Night);
-    String string2 = getString(R.string.Author);
-    String string3 = getString(R.string.JustRandomString);
-    String string4 = getString(R.string.URL);
-    String string5 = getString(R.string.IDKMaybethepasswordpassowrd);
-    String string6 = getString(R.string.Token);
-
-    sb.append(string.substring(5, 9));
-    sb.append(string4.substring(1, 6));
-    sb.append(string2.substring(2, 6));
-    sb.append(string5.substring(5, 8));
-    sb.append(string3);
-    sb.append(string6.substring(18, 26));
-
-    return generateRandomString(String.valueOf(sb));
-}
-
-public native String generateRandomString(String str);
-```
 
 **Observations :**
 - Le mot de passe est construit en concatenant des sous-chaines de plusieurs strings.
@@ -108,55 +86,9 @@ Plutot que de reverser la librairie native, on appelle directement `Password()` 
 
 ![Screenshot_2026-04-15_144035](Screenshot_2026-04-15_144035.png)
 
-```javascript
-Java.perform(function() {
-
-    function getPassword() {
-        console.log("[*] Debut de la recherche d'instances de MainActivity...");
-
-        Java.choose('com.pwnsec.firestorm.MainActivity', {
-
-            onMatch: function(instance) {
-                console.log("[+] MainActivity instance trouvee : " + instance);
-
-                try {
-                    var pass = instance.Password();
-                    console.log("[+] Mot de passe Firebase genere : " + pass);
-                } catch (e) {
-                    console.log("[-] Erreur lors de l'appel de Password() : " + e);
-                }
-            },
-
-            onComplete: function() {
-                console.log("[*] Recherche des instances terminee.");
-            }
-        });
-    }
-
-    console.log("[*] Script charge. Attente de 3 secondes avant execution...");
-    setTimeout(getPassword, 3000);
-});
-```
-
-### 2.3 Execution
+### 2.3 Execution et Resultat
 
 ![Screenshot_2026-04-15_144057](Screenshot_2026-04-15_144057.png)
-
-```bash
-frida -U -f com.pwnsec.firestorm -l frida_firestorm.js
-```
-
-### 2.4 Resultat
-
-```
-Connected to Android Emulator 5554 (id=emulator-5554)
-Spawned `com.pwnsec.firestorm`. Resuming main thread!
-[*] Script charge. Attente de 3 secondes avant execution...
-[*] Debut de la recherche d'instances de MainActivity...
-[+] MainActivity instance trouvee : com.pwnsec.firestorm.MainActivity@73a629e
-[+] Mot de passe Firebase genere : C7_dotpsC7t7f_._In_i.IdttpaofoaIIdIdnndIfC
-[*] Recherche des instances terminee.
-```
 
 Mot de passe recupere : `C7_dotpsC7t7f_._In_i.IdttpaofoaIIdIdnndIfC`
 
@@ -168,32 +100,6 @@ Mot de passe recupere : `C7_dotpsC7t7f_._In_i.IdttpaofoaIIdIdnndIfC`
 
 ![Screenshot_2026-04-15_144211](Screenshot_2026-04-15_144211.png)
 
-```python
-import pyrebase
-
-config = {
-    "apiKey": "AIzaSyAXsK0qsx4RuLSA9C8IPSWd0eQ67HVHuJY",
-    "authDomain": "firestorm-9d3db.firebaseapp.com",
-    "databaseURL": "https://firestorm-9d3db-default-rtdb.firebaseio.com",
-    "storageBucket": "firestorm-9d3db.appspot.com",
-    "projectId": "firestorm-9d3db"
-}
-
-firebase = pyrebase.initialize_app(config)
-auth = firebase.auth()
-
-email    = "TK757567@pwnsec.xyz"
-password = "C7_dotpsC7t7f_._In_i.IdttpaofoaIIdIdnndIfC"
-
-user = auth.sign_in_with_email_and_password(email, password)
-print("Connexion reussie. Token obtenu.")
-
-db = firebase.database()
-
-flag_data = db.get(user['idToken'])
-print("FLAG recupere :")
-print(flag_data.val())
-```
 
 ### 3.2 Execution et flag
 
